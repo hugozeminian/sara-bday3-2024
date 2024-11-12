@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>For Sara!</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+<body>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="button-container">
+                <button  id="initializeButton" onclick="initializeContent()" >Surprise! Click me =)</button>
+            </div>
+            
+            <div id="code" style="display: none;">
+                <span class="comments">It's too soon to say anything.</span>
+                <br />
+                <span class="comments">But it has been a while.</span>
+                <br />
+                <span class="comments">In fact, I know exactly when...</span>
+                <br /> 
+                <span class="comments">My heart will tell you.</span>
+                <br />
+                <span class="comments">All this time talking to you,</span>
+                <br />
+                <span class="comments">I'm not afraid to say</span>
+                <br />
+                <span class="comments">How much I'm enjoying getting to know you every single day.</span>
+                <br />
+                <span class="comments">Your personality make me curious about you in many ways.</span>
+                <br />
+                <span class="comments">You are serious, funny, elegant, all at once.</span>
+                <br />
+                <span class="comments">But it’s your honesty that touches me the most.</span>
+                <br />
+                <span class="comments">We truly don't know about tomorrow,</span>
+                <br />
+                <span class="comments">But I know I want to spend today with you.</span>
+                <br />
+                <span class="comments">We can get along with anyone, but...</span>
+                <br />
+                <span class="comments">If this person is important to you, this become truly special.</span>
+                <br />
+                <span class="comments">I want that surprise to bring joy to your heart.</span>
+                <br />
+                <span class="comments">The same way your "presence" does to mine.</span>
+            </div>
+
+            <div id="loveHeart" style="display: none;">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        <div id="msg">Sara & Hugo</div>
+                        <div id="elapseClock"></div>
+                        <div id="msg">FIX DATE HERE</div>
+                        <div id="msg">I want this space in your heart.</div>
+                        <div id="msg" class="signature">- H</div>
+                        <div id="image-container">
+                            <img id="image1" src="./images/SH1.JPG" alt="hk1">
+                            <img id="image2" src="./images/SH2.JPG" alt="hk2">
+                            <img id="image3" src="./images/SH3.JPG" alt="hk3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyro">
+                <div class="before"></div>
+                <div class="after"></div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        var audio = new Audio("Christina_Perri_-_A_Thousand_Years_CeeNaija.com_.mp3");
+        audio.muted = false; 
+        audio.controls = true; 
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function initializeContent() {
+            $("#code").show();
+            $("#loveHeart").show();
+            $("#initializeButton").hide();
+            audio.play();
+
+            $("#code").typewriter();
+
+            setTimeout(function () {
+                    startHeartAnimation();
+            }, 18000);
+        }
+
+        var offsetX = $("#loveHeart").width() / 2;
+            var offsetY = $("#loveHeart").height() / 2 - 55;
+            var together = new Date();
+            together.setFullYear(2024, 1, 25);
+            together.setHours(0);
+            together.setMinutes(0);
+            together.setSeconds(0);
+            together.setMilliseconds(0);
+            if (!document.createElement('canvas').getContext) {
+                var msg = document.createElement("div");
+                msg.id = "errorMsg";
+                msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+                document.body.appendChild(msg);
+                $("#code").css("display", "none")
+                $("#copyright").css("position", "absolute");
+                $("#copyright").css("bottom", "10px");
+                document.execCommand("stop");
+            } else {
+                timeElapse(together);
+                setInterval(function () {
+                    timeElapse(together);
+                }, 500);
+                adjustCodePosition();
+            }
+
+
+    </script>
+
+
+</body>
+</html>
